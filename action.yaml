@@ -1,9 +1,9 @@
-name: Setup QEMU binfmt
-description: Setup QEMU binfmt
+name: Setup QEMU emulation
+description: Setup QEMU emulation
 runs:
-  using: 'composite'
+  using: composite
   steps:
-    run: |
-      export DEBIAN_FRONTEND=noninteractive
-      sudo apt-get update
-      sudo apt-get install -y binfmt-support qemu-user-static
+    - name: Setup QEMU emulation
+      shell: bash
+      run: |
+        $GITHUB_ACTION_PATH/setup-qemu-emulation.sh
